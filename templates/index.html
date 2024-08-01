@@ -3,9 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Recommend Movies</title>
 </head>
 <body>
-  
+  <h1>Recommend Movies</h1>
+  <form method="POST" action="/">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}" />
+    <p>
+      <label for="title">제목</label><br />
+      <input type="text" name="title" id="title" size="32" required />
+    </p>
+    <p><input type="submit" value="Search"</p>
 </body>
 </html>

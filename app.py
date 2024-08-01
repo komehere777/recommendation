@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask_wtf import FlaskForm
+from flask_wtf.csrf import CSRFProtect
 from wtforms import StringField, SubmitField  # 폼 데이터를 다루기 위한 모듈
 from wtforms.validators import DataRequired  # 폼 규제사항을 정의
 
@@ -11,7 +12,7 @@ class TaskForm(FlaskForm):
     title = StringField(
         "Title", validators=[DataRequired()]
     )  
-    submit = SubmitField("Serch")
+    submit = SubmitField("Search")
 
 @app.route("/", methods=["GET", "POST"])
 def index():
