@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendations</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Top Movie Recommendations</h1>
+    {% if top_movie_preds %}
+        <table>
+            <tr>
+                <th>Movie ID</th>
+                <th>Title</th>
+                <th>Predicted Rating</th>
+            </tr>
+            {% for movie in top_movie_preds %}
+                <tr>
+                    <td>{{ movie[0] }}</td>
+                    <td>{{ movie[1] }}</td>
+                    <td>{{ movie[2] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No movie recommendations available.</p>
+    {% endif %}
+    <a href="{{ url_for('index') }}">Back to Search</a>
+</body>
+</html>
